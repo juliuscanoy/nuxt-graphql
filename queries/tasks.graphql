@@ -1,0 +1,31 @@
+query GetUserTasks {
+  tasks {
+    id
+    name
+    status
+  }
+}
+
+mutation CreateTask($name: String!) {
+    createTask(name: $name) {
+      id
+      name
+      status
+    }
+}
+
+mutation DeleteTask($id: ID!) {
+    deleteTask(id: $id)
+}
+
+mutation UpdateTask($id: ID!, $status: String!){
+    updateTask(id: $id, status: $status) {
+      id
+      name
+      status
+    }
+}
+
+mutation DeleteTasksByAuthUser($status: String) {
+    deleteTasksByAuthUser(status: $status)
+}
